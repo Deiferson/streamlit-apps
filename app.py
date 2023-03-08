@@ -10,10 +10,14 @@ from PIL import Image
 from matplotlib import pyplot as plt
 from sklearn.cluster import KMeans
 
+
+import pytesseract
+
+
 # 1. as sidebar menu
 with st.sidebar:
-    selected = option_menu("Menu", ["Home",'Palette',  'Uber - Streamlit tutorial', 'Sobre mim'], 
-        icons=['house','', 'geo-alt', 'gear'], menu_icon="cast", default_index=0)
+    selected = option_menu("Menu", ["Home",'Palette','ImageToText', 'Uber - Streamlit tutorial', 'Sobre mim'], 
+        icons=['house','','', 'geo-alt', 'gear'], menu_icon="cast", default_index=0)
 
     
 if selected == "Home" :
@@ -79,6 +83,18 @@ if selected == "Palette" :
                 'image/png'
             )
             
+#############################################################################################################################################
+if selected == "ImageToText" :
+    st.title('Image to text')
+    imgs = st.file_uploader("Selecione uma imagem", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
+    
+    for img in imgs:
+        image = Image.open(img)
+        st.image(image, caption='Imagem carregada', use_column_width=True)
+        txt = pytesseract.image_to_string(image, lang='por')
+        st.write(txt)
+                
+
 #############################################################################################################################################
 if selected == "Uber - Streamlit tutorial" :
     st.title('Uber pickups in NYC')
