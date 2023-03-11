@@ -91,8 +91,9 @@ if selected == "ImageToText" :
     for img in imgs:
         image = Image.open(img)
         st.image(image, caption='Imagem carregada', use_column_width=True)
-        pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
-        txt = pytesseract.image_to_string(image, lang='por')
+        #pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
+        #txt = pytesseract.image_to_string(image, lang='por')
+        txt = pytesseract.image_to_string(image)
         st.write(txt)
                 
 
