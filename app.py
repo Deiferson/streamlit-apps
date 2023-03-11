@@ -93,6 +93,7 @@ if selected == "ImageToText" :
         st.image(image, caption='Imagem carregada', use_column_width=True)
         #pytesseract.pytesseract.tesseract_cmd = r'/usr/bin/tesseract'
         #txt = pytesseract.image_to_string(image, lang='por')
+        pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
         txt = pytesseract.image_to_string(image)
         st.write(txt)
                 
