@@ -149,5 +149,3 @@ webencodings==0.5.1; python_full_version >= "3.7.1" and python_version < "4" and
 websocket-client==1.3.3; python_version >= "3.7"
 widgetsnbextension==3.6.1; python_version >= "3.7"
 zipp==3.8.1; python_version < "3.9" and python_version >= "3.7"
-tesseract-ocr==4.1.1
-
